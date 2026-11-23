@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f7f5" />
+  <title>vibes — compartilhe o seu mundo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Vibes início"><span class="brand-mark">v.</span><span>vibes</span></a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <button class="nav-link active" data-view="home"><span class="nav-icon">⌂</span> Início</button>
+        <button class="nav-link" data-view="explore"><span class="nav-icon">⌕</span> Explorar</button>
+        <button class="nav-link" data-view="saved"><span class="nav-icon">♧</span> Salvos</button>
+        <button class="nav-link" data-view="notifications"><span class="nav-icon">♡</span> Notificações <i class="notification-dot"></i></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="new-post-button" id="openComposer"><span>＋</span> Criar publicação</button>
+        <button class="profile-mini" id="openMyProfile">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Seu perfil">
+          <span><strong>Marina Costa</strong><small>@marinacosta</small></span>
+          <span class="more">···</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">v.</span> vibes</div>
+        <div class="page-heading"><span class="eyebrow">QUINTA-FEIRA, 19 DE NOVEMBRO</span><h1 id="pageTitle">Seu feed</h1></div>
+        <label class="search-box"><span>⌕</span><input id="globalSearch" type="search" placeholder="Buscar pessoas e publicações..." autocomplete="off"></label>
+        <button class="icon-button mobile-search" id="focusSearch" aria-label="Buscar">⌕</button>
+      </header>
+
+      <section class="view active" id="homeView">
+        <div class="feed-layout">
+          <div class="feed-column">
+            <section class="stories-section">
+              <div class="section-top"><div><h2>Stories</h2><p>Um pouco do dia de cada um</p></div><button class="text-button" id="viewAllStories">Ver todos <span>→</span></button></div>
+              <div class="stories-row" id="storiesRow"></div>
+            </section>
+            <section class="composer-card">
+              <img class="avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Marina Costa">
+              <button class="composer-prompt" id="openComposerPrompt">O que você está pensando, Marina?</button>
+              <button class="composer-photo" id="openComposerPhoto" aria-label="Adicionar foto">▧</button>
+            </section>
+            <div class="feed-toolbar"><h2>Para você</h2><button class="filter-button" id="feedFilter">Mais recentes <span>⌄</span></button></div>
+            <div id="feedList" class="feed-list"></div>
+          </div>
+          <aside class="right-column">
+            <section class="side-card welcome-card"><span class="welcome-kicker">SEU ESPAÇO, SUAS CONEXÕES</span><h2>As boas ideias merecem ser compartilhadas.</h2><p>Encontre pessoas, descubra novos interesses e compartilhe o que faz parte do seu mundo.</p><button id="exploreFromCard" class="dark-button">Explorar comunidade <span>→</span></button></section>
+            <section class="side-card"><div class="side-card-heading"><h3>Pessoas para seguir</h3><button class="text-button" data-view="explore">Ver todas</button></div><div id="suggestionsList" class="suggestions-list"></div></section>
+            <section class="side-note"><span class="brand-mark small">v.</span><p>Um lugar para compartilhar momentos, ideias e tudo o que inspira você.</p><small>© 2026 vibes · Feito para conectar.</small></section>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view" id="exploreView">
+        <div class="view-intro"><span class="eyebrow">DESCUBRA ALGO NOVO</span><h2>Explore a comunidade</h2><p>Conheça pessoas e encontre publicações que combinam com você.</p></div>
+        <div class="explore-controls"><label class="search-box explore-search"><span>⌕</span><input id="exploreSearch" type="search" placeholder="Procure por nome, assunto ou interesse..."></label><div class="chips"><button class="chip active" data-category="Todos">Todos</button><button class="chip" data-category="Design">Design</button><button class="chip" data-category="Viagem">Viagem</button><button class="chip" data-category="Tecnologia">Tecnologia</button><button class="chip" data-category="Fotografia">Fotografia</button></div></div>
+        <div id="exploreGrid" class="explore-grid"></div>
+        <h2 class="subheading">Pessoas que talvez você conheça</h2><div id="peopleGrid" class="people-grid"></div>
+      </section>
+
+      <section class="view" id="savedView">
+        <div class="view-intro"><span class="eyebrow">SUAS REFERÊNCIAS</span><h2>Publicações salvas</h2><p>Guarde por aqui o que você quer rever depois.</p></div>
+        <div id="savedList" class="feed-list narrow-list"></div>
+      </section>
+
+      <section class="view" id="notificationsView">
+        <div class="view-intro"><span class="eyebrow">FIQUE POR DENTRO</span><h2>Notificações</h2><p>Novidades e interações com suas publicações.</p></div>
+        <div class="notifications-card" id="notificationsList"></div>
+      </section>
+
+      <section class="view" id="profileView">
+        <div id="profileContent"></div>
+      </section>
+    </main>
+  </div>
+
+  <nav class="mobile-nav">
+    <button class="active" data-view="home"><span>⌂</span><small>Início</small></button>
+    <button data-view="explore"><span>⌕</span><small>Explorar</small></button>
+    <button id="mobileCreate"><span class="mobile-plus">＋</span><small>Criar</small></button>
+    <button data-view="notifications"><span>♡</span><small>Atividade</small></button>
+    <button id="mobileProfile"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=faces" alt=""><small>Perfil</small></button>
+  </nav>
+
+  <div class="modal-backdrop" id="composerModal" aria-hidden="true">
+    <section class="modal composer-modal" role="dialog" aria-modal="true" aria-labelledby="composerTitle">
+      <div class="modal-header"><div><span class="eyebrow">NOVA PUBLICAÇÃO</span><h2 id="composerTitle">Compartilhe uma ideia</h2></div><button class="close-button" data-close="composerModal" aria-label="Fechar">×</button></div>
+      <div class="composer-user"><img class="avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt=""><div><strong>Marina Costa</strong><small>Compartilhando com todos</small></div></div>
+      <textarea id="postText" maxlength="500" placeholder="No que você está pensando?"></textarea>
+      <div class="image-preview-wrap" id="imagePreviewWrap" hidden><img id="imagePreview" alt="Prévia da imagem"><button id="removeImage" class="remove-image" aria-label="Remover imagem">×</button></div>
+      <div class="composer-tools"><span>Adicione algo à sua publicação</span><label class="tool-button" for="imageInput">▧ <span>Foto</span></label><input id="imageInput" type="file" accept="image/*" hidden></div>
+      <div class="modal-footer"><small id="charCount">0/500</small><button class="dark-button" id="publishPost" disabled>Publicar <span>→</span></button></div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="commentsModal" aria-hidden="true">
+    <section class="modal comments-modal" role="dialog" aria-modal="true" aria-labelledby="commentsTitle">
+      <div class="modal-header"><div><span class="eyebrow">CONVERSA</span><h2 id="commentsTitle">Comentários</h2></div><button class="close-button" data-close="commentsModal" aria-label="Fechar">×</button></div>
+      <div id="commentsList" class="comments-list"></div>
+      <form id="commentForm" class="comment-form"><img class="avatar small-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt=""><input id="commentInput" maxlength="240" placeholder="Escreva um comentário..." required><button type="submit" aria-label="Enviar comentário">→</button></form>
+    </section>
+  </div>
+
+  <div class="modal-backdrop story-backdrop" id="storyModal" aria-hidden="true">
+    <section class="story-viewer"><button class="close-button story-close" data-close="storyModal">×</button><div class="story-progress"><i></i></div><div id="storyContent"></div><button class="story-next" id="nextStory" aria-label="Próximo story">→</button></section>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
