@@ -1,29 +1,40 @@
 # VIBES — Rede social
 
-Uma rede social front-end feita com HTML, CSS e JavaScript puro. O projeto foi pensado como peça de portfólio: interface responsiva, componentes organizados e interações funcionais no navegador.
+Rede social front-end desenvolvida com **HTML, CSS e JavaScript puro**. Projeto de portfólio com interface responsiva e interações executadas no navegador.
+
+🌐 **[Acessar demonstração online](https://neskauz.github.io/vibes-social/)**
 
 ## Funcionalidades
 
-- Feed com publicações de exemplo
+- Feed com publicações demonstrativas
 - Criar publicações com texto e imagem
 - Curtir e descurtir publicações
 - Comentar em publicações
-- Salvar publicações
-- Excluir as próprias publicações
+- Salvar e excluir publicações próprias
 - Stories demonstrativos
 - Explorar publicações por categoria
 - Seguir e deixar de seguir perfis
 - Busca no feed
 - Notificações demonstrativas
-- Persistência de publicações, curtidas, comentários, salvos e seguindo via `localStorage`
+- Persistência local de publicações, curtidas, comentários, itens salvos e perfis seguidos usando `localStorage`
 
-## Como executar
+## Tecnologias
 
-1. Extraia o arquivo ZIP.
-2. Abra a pasta `vibes-social` no VS Code.
-3. Abra `index.html` no navegador. Recomendado: usar a extensão **Live Server** do VS Code e clicar em **Go Live**.
+- **HTML5** — estrutura da aplicação
+- **CSS3** — layout responsivo com Grid, Flexbox e media queries
+- **JavaScript** — manipulação do DOM, eventos e armazenamento local
 
-Não é necessário instalar dependências ou configurar servidor.
+## Executar localmente
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/neskauz/vibes-social.git
+   cd vibes-social
+   ```
+2. Abra a pasta no VS Code.
+3. Abra o `index.html` no navegador. Para desenvolvimento, você também pode usar a extensão Live Server.
+
+Não é necessário instalar dependências.
 
 ## Estrutura
 
@@ -35,29 +46,10 @@ vibes-social/
 └── README.md
 ```
 
-## Tecnologias
+## Limitações da demonstração
 
-- HTML5
-- CSS3 (Grid, Flexbox e media queries)
-- JavaScript (DOM, eventos e localStorage)
+Esta é uma aplicação exclusivamente front-end. Os dados ficam armazenados no navegador por meio de `localStorage` e não são compartilhados entre dispositivos ou usuários. Autenticação real, banco de dados, upload permanente de imagens, mensagens privadas e sincronização multiusuário exigiriam um backend.
 
-## Observações
+## Objetivo do projeto
 
-Esta é uma versão front-end demonstrativa. Os dados ficam salvos apenas no navegador utilizado. Login real, banco de dados, upload permanente de imagens, mensagens privadas e sincronização entre usuários exigem um backend e autenticação.
-
-## Publicar no GitHub
-
-Crie um repositório chamado `vibes-social`. No terminal do VS Code, dentro da pasta do projeto, execute:
-
-```bash
-git init
-git add .
-git commit -m "feat: cria rede social Vibes"
-git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/vibes-social.git
-git push -u origin main
-```
-
-Substitua `SEU-USUARIO` pelo seu usuário do GitHub.
-
-Para publicar pelo GitHub Pages: abra **Settings → Pages**, selecione **Deploy from a branch**, escolha `main` e `/ (root)`, e salve.
+Praticar desenvolvimento front-end, construção de interfaces responsivas, manipulação do DOM, tratamento de eventos e persistência de dados no navegador.
